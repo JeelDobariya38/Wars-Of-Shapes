@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 2f;
+    public float speed;
+
+    private Rigidbody2D rb;
+    private Vector2 moveVelocity;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
-        this.transform.position += movement.normalized * speed * Time.deltaTime;
+        Vector2 movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        moveVelocity = movementInput.normalized * speed;
+    }
+
+    void FixedUpdate() {
+        rb.MovePosition(rb.position + moveVelocity * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
