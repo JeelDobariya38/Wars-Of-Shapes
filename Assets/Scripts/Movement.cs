@@ -25,9 +25,4 @@ public class Movement : MonoBehaviour
     void FixedUpdate() {
         rb.MovePosition(rb.position + moveVelocity * Time.deltaTime);
     }
-
-    private void OnCollisionEnter2D(Collision2D other) {
-        Application.Quit();
-        Debug.Log("Application Quit!!");
-    }
 }
