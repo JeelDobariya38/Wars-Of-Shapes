@@ -147,4 +147,4 @@ MonoBehaviour:
   stoppingDistance: 5
   retreatDistance: 3
   bulletprefab: {fileID: 398345379745924908, guid: 5b0c8c704b152ba459d8a46f249807b0, type: 3}
-  timeBtwShoot: 4
+  timeBtwShoot: 2
