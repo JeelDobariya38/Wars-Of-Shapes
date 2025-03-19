@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 0;
+    public float speed = 2;
+    public int damage = 2;
 
     private Vector3 target;
 
@@ -27,7 +28,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject == GameObject.FindGameObjectWithTag("Player")) {
-            Debug.Log("Player Damage!!");
+            other.gameObject.GetComponent<Player>().takeDamage(damage);
             DestroyGameObject();
         }
     }
