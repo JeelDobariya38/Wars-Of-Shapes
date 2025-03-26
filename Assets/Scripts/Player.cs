@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public int maxHealth;
-    public Text healthText;
+    public TextMeshProUGUI healthText;
 
     private int health;
 
