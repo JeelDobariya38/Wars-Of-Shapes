@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1153931765288168098}
   - component: {fileID: 2859497240498804416}
   - component: {fileID: 296582375774918978}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -176,3 +176,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  gameManager: {fileID: 0}
+  healthText: {fileID: 0}

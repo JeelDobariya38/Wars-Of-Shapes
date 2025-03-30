@@ -1749,14 +1749,14 @@ MonoBehaviour:
   m_text: 'Health: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280974079
-  m_fontColor: {r: 1, g: 0.47843137, b: 0.16470589, a: 1}
+    rgba: 4280645631
+  m_fontColor: {r: 1, g: 0.4663034, b: 0.14528298, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2512,6 +2512,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1268610206}
+    - target: {fileID: 2859497240498804416, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8118712064294470100, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
       propertyPath: m_Name
       value: Player
