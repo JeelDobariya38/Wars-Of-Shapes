@@ -1,39 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
-    public float speed;
-    public PlayerControls controls;
+    [SerializeField] private float _speed;
+    [SerializeField] private PlayerControls _controls;
 
-    private Rigidbody2D rb;
-    private Vector2 moveVelocity;
+    private Rigidbody2D _rb;
+    private Vector2 _moveVelocity;
 
-    // Start is called before the first frame update
     private void Awake() {
-        rb = GetComponent<Rigidbody2D>();
-        controls = new PlayerControls();
-        controls.Enable();
+        _rb = GetComponent<Rigidbody2D>();
+        _controls = new PlayerControls();
+        _controls.Enable();
     }
 
     private void OnEnable()
     {
-        controls.Enable();
+        _controls.Enable();
     }
 
     private void OnDisable() {
-        controls.Disable();
+        _controls.Disable();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
-        moveVelocity = movementInput.normalized * speed;
+        Vector2 movementInput = _controls.Player.Move.ReadValue<Vector2>();
+        _moveVelocity = movementInput.normalized * _speed;
     }
 
-    void FixedUpdate() {
-        rb.MovePosition(rb.position + moveVelocity * Time.deltaTime);
+    private void FixedUpdate() {
+        _rb.MovePosition(_rb.position + _moveVelocity * Time.deltaTime);
     }
 }
