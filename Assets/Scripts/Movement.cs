@@ -1,29 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Terresquall;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
-    public float speed;
+    [SerializeField] private float _speed;
+    [SerializeField] private PlayerControls _controls;
 
-    private Rigidbody2D rb;
-    private Vector2 moveVelocity;
+    private Rigidbody2D _rb;
+    private Vector2 _moveVelocity;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
+    private void Awake() {
+        _rb = GetComponent<Rigidbody2D>();
+        _controls = new PlayerControls();
+        _controls.Enable();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        Vector2 movementInput = new Vector2(VirtualJoystick.GetAxis("Horizontal"), VirtualJoystick.GetAxis("Vertical"));
-        moveVelocity = movementInput.normalized * speed;
+        _controls.Enable();
     }
 
-    void FixedUpdate() {
-        rb.MovePosition(rb.position + moveVelocity * Time.deltaTime);
+    private void OnDisable() {
+        _controls.Disable();
+    }
+
+    private void Update()
+    {
+        Vector2 movementInput = _controls.Player.Move.ReadValue<Vector2>();
+        _moveVelocity = movementInput.normalized * _speed;
+    }
+
+    private void FixedUpdate() {
+        _rb.MovePosition(_rb.position + _moveVelocity * Time.deltaTime);
     }
 }
