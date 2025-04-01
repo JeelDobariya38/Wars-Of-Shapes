@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 2;
-    public int damage = 2;
+    [SerializeField] public float speed = 2;
+    [SerializeField] public int _damage = 2;
 
     private Vector3 target;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (target == this.transform.position) {
             DestroyGameObject();
@@ -26,14 +23,18 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject == GameObject.FindGameObjectWithTag("Player")) {
-            other.gameObject.GetComponent<Player>().TakeDamage(damage);
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+
+        if (damageable != null)
+        {
+            damageable.TakeDamage(_damage);
             DestroyGameObject();
         }
     }
 
-    void DestroyGameObject() {
+    private void DestroyGameObject() {
         Destroy(this.gameObject);
     }
 }

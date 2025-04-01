@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private TextMeshProUGUI _healthText;
@@ -19,9 +19,9 @@ public class Player : MonoBehaviour
         UpdateHealthText(_healthSystem.GetHealth());
     }
 
-    public void TakeDamage(int damage) 
+    public void TakeDamage(int damageAmount) 
     {
-        _healthSystem.TakeDamage(damage);
+        _healthSystem.TakeDamage(damageAmount);
     }
 
     private void HandleHealthChanged(int currentHealth, int maxHealth) 
