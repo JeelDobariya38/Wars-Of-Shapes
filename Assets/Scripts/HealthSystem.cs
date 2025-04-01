@@ -1,55 +1,58 @@
 using System;
 using UnityEngine;
 
-public class HealthSystem
+namespace WarsOfShapes
 {
-    private int _currentHealth;
-    private int _maxHealth;
-
-    public event Action<int, int> OnHealthChanged; // (currentHealth, maxHealth)
-
-    public event Action OnNoHealth;
-
-    public HealthSystem(int maxHealth)
+    public class HealthSystem
     {
-        _maxHealth = maxHealth;
-        _currentHealth = maxHealth;
-    }
+        private int _currentHealth;
+        private int _maxHealth;
 
-    public bool IsAlive() {
-        return _currentHealth > 0;
-    }
+        public event Action<int, int> OnHealthChanged; // (currentHealth, maxHealth)
 
-    public int GetHealth() {
-        return _currentHealth;
-    }
+        public event Action OnNoHealth;
 
-    public void TakeDamage(int damage)
-    {
-        if (_currentHealth <= 0) return;
-
-        _currentHealth -= damage;
-        _currentHealth = Mathf.Max(_currentHealth, 0);
-
-        OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
-
-        if (_currentHealth == 0)
+        public HealthSystem(int maxHealth)
         {
-            OnNoHealth?.Invoke();
+            _maxHealth = maxHealth;
+            _currentHealth = maxHealth;
         }
-    }
 
-    public void Heal(int healAmount)
-    {
-        _currentHealth += healAmount;
-        _currentHealth = Mathf.Min(_currentHealth, _maxHealth);
+        public bool IsAlive() {
+            return _currentHealth > 0;
+        }
 
-        OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
-    }
+        public int GetHealth() {
+            return _currentHealth;
+        }
 
-    public void Reset()
-    {
-        _currentHealth = _maxHealth;
-        OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
+        public void TakeDamage(int damage)
+        {
+            if (_currentHealth <= 0) return;
+
+            _currentHealth -= damage;
+            _currentHealth = Mathf.Max(_currentHealth, 0);
+
+            OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
+
+            if (_currentHealth == 0)
+            {
+                OnNoHealth?.Invoke();
+            }
+        }
+
+        public void Heal(int healAmount)
+        {
+            _currentHealth += healAmount;
+            _currentHealth = Mathf.Min(_currentHealth, _maxHealth);
+
+            OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
+        }
+
+        public void Reset()
+        {
+            _currentHealth = _maxHealth;
+            OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
+        }
     }
 }
