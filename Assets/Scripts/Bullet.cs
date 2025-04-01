@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] public float speed = 2;
-    [SerializeField] public int _damage = 2;
+    [SerializeField] private float _speed = 4;
+    [SerializeField] private int _damage = 2;
 
     private Vector3 target;
 
@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
         if (target == this.transform.position) {
             DestroyGameObject();
         } else {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, target, _speed * Time.deltaTime);
         }
     }
 
@@ -31,7 +31,6 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 
     private void DestroyGameObject() {
         Destroy(this.gameObject);
