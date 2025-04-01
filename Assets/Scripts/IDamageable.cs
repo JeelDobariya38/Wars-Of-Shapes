@@ -1,6 +1,9 @@
-public interface IDamageable
+namespace WarsOfShapes
 {
-    HealthSystem HealthSystem { get; }
-    
-    void TakeDamage(int damageAmount) => HealthSystem.TakeDamage(damageAmount);
+    public interface IDamageable
+    {
+        HealthSystem HealthSystem { get; }
+        
+        void TakeDamage(int damageAmount) => HealthSystem.TakeDamage(damageAmount);
+    }
 }

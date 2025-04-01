@@ -1,52 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+namespace WarsOfShapes
 {
-    public GameObject pausemenu;
-    public GameObject mainmenu;
-    public GameObject gameovermenu;
-
-    public void GameStart() {
-        SceneManager.LoadScene(1);
-    }
-
-    public void GameRestart()
+    public class GameManager : MonoBehaviour
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+        [SerializeField] private GameObject _pausemenu;
+        [SerializeField] private GameObject _mainmenu;
+        [SerializeField] private GameObject _gameovermenu;
 
-    public void GamePause()
-    {
-        Time.timeScale = 0f;
-        mainmenu.SetActive(false);
-        pausemenu.SetActive(true);
-    }
+        public void GameStart() {
+            SceneManager.LoadScene(1);
+        }
 
-    public void GameResume()
-    {
-        Time.timeScale = 1f;
-        mainmenu.SetActive(true);
-        pausemenu.SetActive(false);
-    }
+        public void GameRestart()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
-    public void GoBack()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
-    }
+        public void GamePause()
+        {
+            Time.timeScale = 0f;
+            _mainmenu.SetActive(false);
+            _pausemenu.SetActive(true);
+        }
 
-    public void GameOver() {
-        Time.timeScale = 0f;
-        gameovermenu.SetActive(true);
-    }
+        public void GameResume()
+        {
+            Time.timeScale = 1f;
+            _mainmenu.SetActive(true);
+            _pausemenu.SetActive(false);
+        }
 
-    public void GameQuit()
-    {
-        Application.Quit();
-        Debug.Log("Application Quitted!!");
+        public void GoBack()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(0);
+        }
+
+        public void GameOver() {
+            Time.timeScale = 0f;
+            _gameovermenu.SetActive(true);
+        }
+
+        public void GameQuit()
+        {
+            Application.Quit();
+            Debug.Log("Application Quitted!!");
+        }
     }
 }

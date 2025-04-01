@@ -1,36 +1,39 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class Movement : MonoBehaviour
+namespace WarsOfShapes
 {
-    [SerializeField] private float _speed;
-    [SerializeField] private PlayerControls _controls;
-
-    private Rigidbody2D _rb;
-    private Vector2 _moveVelocity;
-
-    private void Awake() {
-        _rb = GetComponent<Rigidbody2D>();
-        _controls = new PlayerControls();
-        _controls.Enable();
-    }
-
-    private void OnEnable()
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class Movement : MonoBehaviour
     {
-        _controls.Enable();
-    }
+        [SerializeField] private float _speed;
+        [SerializeField] private PlayerControls _controls;
 
-    private void OnDisable() {
-        _controls.Disable();
-    }
+        private Rigidbody2D _rb;
+        private Vector2 _moveVelocity;
 
-    private void Update()
-    {
-        Vector2 movementInput = _controls.Player.Move.ReadValue<Vector2>();
-        _moveVelocity = movementInput.normalized * _speed;
-    }
+        private void Awake() {
+            _rb = GetComponent<Rigidbody2D>();
+            _controls = new PlayerControls();
+            _controls.Enable();
+        }
 
-    private void FixedUpdate() {
-        _rb.MovePosition(_rb.position + _moveVelocity * Time.deltaTime);
+        private void OnEnable()
+        {
+            _controls.Enable();
+        }
+
+        private void OnDisable() {
+            _controls.Disable();
+        }
+
+        private void Update()
+        {
+            Vector2 movementInput = _controls.Player.Move.ReadValue<Vector2>();
+            _moveVelocity = movementInput.normalized * _speed;
+        }
+
+        private void FixedUpdate() {
+            _rb.MovePosition(_rb.position + _moveVelocity * Time.deltaTime);
+        }
     }
 }
