@@ -1,37 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
-    public int maxHealth;
+    [SerializeField] private GameManager _gameManager;
+    [SerializeField] private TextMeshProUGUI _healthText;
+    [SerializeField] private int _maxHealth = 100;
+    
+    private HealthSystem _healthSystem;
 
-    public GameManager gameManager;
+    public HealthSystem HealthSystem => _healthSystem;
 
-    public TextMeshProUGUI healthText;
+    private void Awake() 
+    {
+        _healthSystem = new HealthSystem(_maxHealth);
 
-    private int health;
+        _healthSystem.OnHealthChanged += HandleHealthChanged;
+        _healthSystem.OnNoHealth += HandlePlayerDeath;
 
-    void Start() {
-        health = maxHealth;
-        updateHealthText();
+        UpdateHealthText(_healthSystem.GetHealth());
     }
 
-    public void takeDamage(int damage) {
-        health -= damage;
-
-        if (health <= 0) {
-            health = 0;
-            gameManager.GameOver();
-        }
-
-        updateHealthText();
+    private void HandleHealthChanged(int currentHealth, int maxHealth) 
+    {
+        UpdateHealthText(currentHealth);
     }
 
-    void updateHealthText() {
-        healthText.text = "Health: " + health.ToString();
+    private void HandlePlayerDeath() 
+    {
+        _gameManager.GameOver();
+    }
+
+    private void UpdateHealthText(int healthValue) 
+    {
+        _healthText.text = $"Health: {healthValue}";
     }
 }
