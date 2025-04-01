@@ -1,37 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public int maxHealth;
-
     public GameManager gameManager;
 
     public TextMeshProUGUI healthText;
+    public int maxHealth;
 
-    private int health;
+    private HealthSystem _healthSystem;
 
-    void Start() {
-        health = maxHealth;
-        updateHealthText();
+    private void Awake() {
+        _healthSystem = new HealthSystem(maxHealth);
+        _healthSystem.OnHealthChanged += (currenthealth, maxHealth) => UpdateHealthText(currenthealth);
+        _healthSystem.OnNoHealth += () => gameManager.GameOver();
+        UpdateHealthText(_healthSystem.GetHealth());
     }
 
-    public void takeDamage(int damage) {
-        health -= damage;
-
-        if (health <= 0) {
-            health = 0;
-            gameManager.GameOver();
-        }
-
-        updateHealthText();
+    public void TakeDamage(int damage) {
+        _healthSystem.TakeDamage(damage);
     }
 
-    void updateHealthText() {
-        healthText.text = "Health: " + health.ToString();
+    private void UpdateHealthText(int healthValue) {
+        healthText.text = "Health: " + healthValue.ToString();
     }
 }
