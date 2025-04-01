@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameManager gameManager;
+    [SerializeField] private GameManager gameManager;
 
-    public TextMeshProUGUI healthText;
-    public int maxHealth;
+    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private int maxHealth;
 
     private HealthSystem _healthSystem;
 
