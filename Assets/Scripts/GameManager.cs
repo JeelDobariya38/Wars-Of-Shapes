@@ -5,9 +5,9 @@ namespace WarsOfShapes
 {
     public class GameManager : MonoBehaviour
     {
-        public GameObject pausemenu;
-        public GameObject mainmenu;
-        public GameObject gameovermenu;
+        [SerializeField] private GameObject _pausemenu;
+        [SerializeField] private GameObject _mainmenu;
+        [SerializeField] private GameObject _gameovermenu;
 
         public void GameStart() {
             SceneManager.LoadScene(1);
@@ -15,21 +15,22 @@ namespace WarsOfShapes
 
         public void GameRestart()
         {
+            Time.timeScale = 1f;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         public void GamePause()
         {
             Time.timeScale = 0f;
-            mainmenu.SetActive(false);
-            pausemenu.SetActive(true);
+            _mainmenu.SetActive(false);
+            _pausemenu.SetActive(true);
         }
 
         public void GameResume()
         {
             Time.timeScale = 1f;
-            mainmenu.SetActive(true);
-            pausemenu.SetActive(false);
+            _mainmenu.SetActive(true);
+            _pausemenu.SetActive(false);
         }
 
         public void GoBack()
@@ -40,7 +41,7 @@ namespace WarsOfShapes
 
         public void GameOver() {
             Time.timeScale = 0f;
-            gameovermenu.SetActive(true);
+            _gameovermenu.SetActive(true);
         }
 
         public void GameQuit()
