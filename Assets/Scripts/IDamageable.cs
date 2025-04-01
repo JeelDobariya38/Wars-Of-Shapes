@@ -1,5 +1,6 @@
 public interface IDamageable
 {
-    void TakeDamage(int damageAmount);
+    HealthSystem HealthSystem { get; }
+    
+    void TakeDamage(int damageAmount) => HealthSystem.TakeDamage(damageAmount);
 }
-

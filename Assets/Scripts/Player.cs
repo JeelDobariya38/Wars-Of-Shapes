@@ -9,6 +9,8 @@ public class Player : MonoBehaviour, IDamageable
     
     private HealthSystem _healthSystem;
 
+    public HealthSystem HealthSystem => _healthSystem;
+
     private void Awake() 
     {
         _healthSystem = new HealthSystem(_maxHealth);
@@ -17,11 +19,6 @@ public class Player : MonoBehaviour, IDamageable
         _healthSystem.OnNoHealth += HandlePlayerDeath;
 
         UpdateHealthText(_healthSystem.GetHealth());
-    }
-
-    public void TakeDamage(int damageAmount) 
-    {
-        _healthSystem.TakeDamage(damageAmount);
     }
 
     private void HandleHealthChanged(int currentHealth, int maxHealth) 
