@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,10 @@ namespace WarsOfShapes
 
         public void GameStart() {
             SceneManager.LoadScene(1);
+        }
+
+        public void OpenHyperLink(String url) {
+            Application.OpenURL(url);
         }
 
         public void GameRestart()
