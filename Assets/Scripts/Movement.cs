@@ -17,6 +17,16 @@ namespace WarsOfShapes
             _controls.Enable();
         }
 
+        private void Update()
+        {
+            Vector2 movementInput = _controls.Player.Move.ReadValue<Vector2>();
+            _moveVelocity = movementInput.normalized * _speed;
+        }
+
+        private void FixedUpdate() {
+            _rb.MovePosition(_rb.position + _moveVelocity * Time.deltaTime);
+        }
+
         private void OnEnable()
         {
             _controls.Enable();
@@ -26,14 +36,8 @@ namespace WarsOfShapes
             _controls.Disable();
         }
 
-        private void Update()
-        {
-            Vector2 movementInput = _controls.Player.Move.ReadValue<Vector2>();
-            _moveVelocity = movementInput.normalized * _speed;
-        }
-
-        private void FixedUpdate() {
-            _rb.MovePosition(_rb.position + _moveVelocity * Time.deltaTime);
+        private void OnDestroy() {
+            _controls.Disable();
         }
     }
 }
