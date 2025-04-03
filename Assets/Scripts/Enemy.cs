@@ -4,49 +4,47 @@ namespace WarsOfShapes
 {
     public class Enemy : MonoBehaviour
     {
-        public float speed;
-        public float stoppingDistance;
-        public float retreatDistance;
         public GameObject bulletprefab;
-        public float timeBtwShoot;
-
-        private Transform target;
-        private float timeBtwShootCount;
-        private Rigidbody2D rb;
         
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] private float _speed;
+        [SerializeField] private float _stoppingDistance;
+        [SerializeField] private float _retreatDistance;
+        [SerializeField] private  float _timeBtwShoot;
+        
+        private Transform _target;
+        private float _timeBtwShootCount;
+        private Rigidbody2D _rb;
+        
+        void Awake()
         {
-            target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-            rb = GetComponent<Rigidbody2D>();
-            timeBtwShootCount = 0;
+            _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            _rb = GetComponent<Rigidbody2D>();
+            _timeBtwShootCount = 0;
         }
 
-        // Update is called once per frame
         void Update()
         {
-            // Shooting
-            if (timeBtwShootCount > timeBtwShoot) {
-                timeBtwShootCount = 0;
+            if (_timeBtwShootCount > _timeBtwShoot) {
+                _timeBtwShootCount = 0;
                 Shoot();
             } else {
-                timeBtwShootCount += Time.deltaTime;
+                _timeBtwShootCount += Time.deltaTime;
             }
         }
 
         void FixedUpdate()
         {
             Vector2 direction = Vector2.zero;
-            float distance = Vector2.Distance(transform.position, target.position);
+            float distance = Vector2.Distance(transform.position, _target.position);
 
-            if (distance < retreatDistance) {
-                direction = (transform.position - target.position).normalized;
+            if (distance < _retreatDistance) {
+                direction = (transform.position - _target.position).normalized;
             }
-            else if (distance > stoppingDistance) {
-                direction = (target.position - transform.position).normalized;
+            else if (distance > _stoppingDistance) {
+                direction = (_target.position - transform.position).normalized;
             }
 
-            rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+            _rb.MovePosition(rb.position + direction * _speed * Time.fixedDeltaTime);
         }
 
         void Shoot() {
