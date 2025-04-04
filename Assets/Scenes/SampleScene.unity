@@ -3124,13 +3124,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1268610206}
     - target: {fileID: 296582375774918978, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
-      propertyPath: _scoreSystem
-      value: 
-      objectReference: {fileID: 2080231080047059052}
-    - target: {fileID: 296582375774918978, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
       propertyPath: _scoreTextGameOverPanel
       value: 
       objectReference: {fileID: 1542176426}
+    - target: {fileID: 6401315691498208957, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6401315691498208957, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
       propertyPath: _scoreText
       value: 
@@ -3184,17 +3184,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
---- !u!114 &2080231080047059052 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6401315691498208957, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
-  m_PrefabInstance: {fileID: 2080231080047059050}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbfcae003749d25429de3f1cca6503f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4074140215825293852
 PrefabInstance:
   m_ObjectHideFlags: 0

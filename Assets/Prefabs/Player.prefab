@@ -177,8 +177,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 0}
+  _scoreSystem: {fileID: 6401315691498208957}
   _healthText: {fileID: 0}
-  scoreSystem: {fileID: 6401315691498208957}
+  _scoreTextGameOverPanel: {fileID: 0}
   _maxHealth: 20
 --- !u!114 &6401315691498208957
 MonoBehaviour:
