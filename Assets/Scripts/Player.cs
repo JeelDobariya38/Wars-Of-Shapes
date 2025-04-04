@@ -6,7 +6,9 @@ namespace WarsOfShapes
     public class Player : MonoBehaviour, IDamageable
     {
         [SerializeField] private GameManager _gameManager;
+        [SerializeField] private ScoreSystem _scoreSystem;
         [SerializeField] private TextMeshProUGUI _healthText;
+        [SerializeField] private TextMeshProUGUI _scoreTextGameOverPanel;
         [SerializeField] private int _maxHealth = 100;
         
         private HealthSystem _healthSystem;
@@ -21,6 +23,7 @@ namespace WarsOfShapes
             _healthSystem.OnNoHealth += HandlePlayerDeath;
 
             UpdateHealthText(_healthSystem.GetHealth());
+            _scoreSystem.StartScoring();
         }
 
         private void HandleHealthChanged(int currentHealth, int maxHealth) 
@@ -30,7 +33,9 @@ namespace WarsOfShapes
 
         private void HandlePlayerDeath() 
         {
+            _scoreTextGameOverPanel.text = "Score: " + _scoreSystem.GetScore();
             _gameManager.GameOver();
+            _scoreSystem.StopScoring();
         }
 
         private void UpdateHealthText(int healthValue) 

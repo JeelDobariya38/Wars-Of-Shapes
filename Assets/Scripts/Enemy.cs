@@ -44,7 +44,7 @@ namespace WarsOfShapes
                 direction = (_target.position - transform.position).normalized;
             }
 
-            _rb.MovePosition(rb.position + direction * _speed * Time.fixedDeltaTime);
+            _rb.MovePosition(_rb.position + direction * _speed * Time.fixedDeltaTime);
         }
 
         void Shoot() {
