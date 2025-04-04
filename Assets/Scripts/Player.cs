@@ -5,11 +5,11 @@ namespace WarsOfShapes
 {
     public class Player : MonoBehaviour, IDamageable
     {
-        [SerializeField] private GameManager _gameManager;
-        [SerializeField] private ScoreSystem _scoreSystem;
-        [SerializeField] private TextMeshProUGUI _healthText;
-        [SerializeField] private TextMeshProUGUI _scoreTextGameOverPanel;
-        [SerializeField] private int _maxHealth = 100;
+        [SerializeField] private int maxHealth = 100;
+        [SerializeField] private GameManager gameManager;
+        [SerializeField] private ScoreSystem scoreSystem;
+        [SerializeField] private TextMeshProUGUI healthText;
+        [SerializeField] private TextMeshProUGUI scoreTextGameOverPanel;
         
         private HealthSystem _healthSystem;
 
@@ -17,13 +17,13 @@ namespace WarsOfShapes
 
         private void Awake() 
         {
-            _healthSystem = new HealthSystem(_maxHealth);
+            _healthSystem = new HealthSystem(maxHealth);
 
             _healthSystem.OnHealthChanged += HandleHealthChanged;
             _healthSystem.OnNoHealth += HandlePlayerDeath;
 
             UpdateHealthText(_healthSystem.GetHealth());
-            _scoreSystem.StartScoring();
+            scoreSystem.StartScoring();
         }
 
         private void HandleHealthChanged(int currentHealth, int maxHealth) 
@@ -33,14 +33,14 @@ namespace WarsOfShapes
 
         private void HandlePlayerDeath() 
         {
-            _scoreTextGameOverPanel.text = "Score: " + _scoreSystem.GetScore();
-            _gameManager.GameOver();
-            _scoreSystem.StopScoring();
+            scoreTextGameOverPanel.text = "Score: " + scoreSystem.GetScore();
+            gameManager.GameOver();
+            scoreSystem.StopScoring();
         }
 
         private void UpdateHealthText(int healthValue) 
         {
-            _healthText.text = $"Health: {healthValue}";
+            healthText.text = $"Health: {healthValue}";
         }
     }
 }

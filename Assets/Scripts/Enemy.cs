@@ -2,14 +2,15 @@ using UnityEngine;
 
 namespace WarsOfShapes
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class Enemy : MonoBehaviour
     {
         public GameObject bulletprefab;
         
-        [SerializeField] private float _speed;
-        [SerializeField] private float _stoppingDistance;
-        [SerializeField] private float _retreatDistance;
-        [SerializeField] private  float _timeBtwShoot;
+        [SerializeField] private float speed;
+        [SerializeField] private float stoppingDistance;
+        [SerializeField] private float retreatDistance;
+        [SerializeField] private  float timeBtwShoot;
         
         private Transform _target;
         private float _timeBtwShootCount;
@@ -24,7 +25,7 @@ namespace WarsOfShapes
 
         void Update()
         {
-            if (_timeBtwShootCount > _timeBtwShoot) {
+            if (_timeBtwShootCount > timeBtwShoot) {
                 _timeBtwShootCount = 0;
                 Shoot();
             } else {
@@ -37,14 +38,14 @@ namespace WarsOfShapes
             Vector2 direction = Vector2.zero;
             float distance = Vector2.Distance(transform.position, _target.position);
 
-            if (distance < _retreatDistance) {
+            if (distance < retreatDistance) {
                 direction = (transform.position - _target.position).normalized;
             }
-            else if (distance > _stoppingDistance) {
+            else if (distance > stoppingDistance) {
                 direction = (_target.position - transform.position).normalized;
             }
 
-            _rb.MovePosition(_rb.position + direction * _speed * Time.fixedDeltaTime);
+            _rb.MovePosition(_rb.position + direction * speed * Time.fixedDeltaTime);
         }
 
         void Shoot() {
