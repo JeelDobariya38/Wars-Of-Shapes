@@ -46,6 +46,7 @@ namespace WarsOfShapes
 
         public void GameOver() {
             Time.timeScale = 0f;
+            _mainmenu.SetActive(false);
             _gameovermenu.SetActive(true);
         }
 

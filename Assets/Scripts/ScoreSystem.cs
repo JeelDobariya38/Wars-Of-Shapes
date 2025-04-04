@@ -6,33 +6,46 @@ namespace WarsOfShapes
     public class ScoreSystem : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _scoreText;
-        private float _startTime;
-        private float _updateInterval = 0.1f;
-        private float _nextUpdateTime;
-
-        private void Start()
-        {
-            _startTime = Time.time;
-            _nextUpdateTime = Time.time;
-        }
+        
+        private float _score = 0f;
+        private bool _isCounting = false;
 
         private void Update()
         {
-            if (Time.time >= _nextUpdateTime)
+            if (_isCounting)
             {
-                _nextUpdateTime = Time.time + _updateInterval;
+                _score += Time.deltaTime;
                 UpdateScoreText();
             }
         }
 
-        public void ResetTimer()
+        public void StartScoring()
         {
-            _startTime = Time.time;
+            _isCounting = true;
+        }
+
+        public void StopScoring()
+        {
+            _isCounting = false;
+        }
+
+        public void ResetScore()
+        {
+            _score = 0f;
+            UpdateScoreText();
+        }
+
+        public int GetScore()
+        {
+            return Mathf.FloorToInt(_score);
         }
 
         private void UpdateScoreText()
         {
-            _scoreText.text = $"Survival Time: {Time.time - _startTime:F1} sec";
+            if (_scoreText != null) 
+            {
+                _scoreText.text = "Score: " + Mathf.FloorToInt(_score).ToString();
+            }
         }
     }
 }
