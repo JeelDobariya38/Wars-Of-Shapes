@@ -6,10 +6,7 @@ namespace WarsOfShapes
     public class Player : MonoBehaviour, IDamageable
     {
         [SerializeField] private int maxHealth = 100;
-        [SerializeField] private GameManager gameManager;
         [SerializeField] private ScoreSystem scoreSystem;
-        [SerializeField] private TextMeshProUGUI healthText;
-        [SerializeField] private TextMeshProUGUI scoreTextGameOverPanel;
         
         private HealthSystem _healthSystem;
 
@@ -21,26 +18,23 @@ namespace WarsOfShapes
 
             _healthSystem.OnHealthChanged += HandleHealthChanged;
             _healthSystem.OnNoHealth += HandlePlayerDeath;
+        }
 
-            UpdateHealthText(_healthSystem.GetHealth());
-            scoreSystem.StartScoring();
+        private void Start()
+        {
+            GameMenuManager.Instance.UpdateHealthText(_healthSystem.GetHealth());
+            scoreSystem.StartScoring();   
         }
 
         private void HandleHealthChanged(int currentHealth, int maxHealth) 
         {
-            UpdateHealthText(currentHealth);
+            GameMenuManager.Instance.UpdateHealthText(currentHealth);
         }
 
         private void HandlePlayerDeath() 
         {
-            scoreTextGameOverPanel.text = "Score: " + scoreSystem.GetScore();
-            gameManager.GameOver();
+            GameMenuManager.Instance.OpenGameOverMenu(scoreSystem.GetScore());
             scoreSystem.StopScoring();
-        }
-
-        private void UpdateHealthText(int healthValue) 
-        {
-            healthText.text = $"Health: {healthValue}";
         }
     }
 }

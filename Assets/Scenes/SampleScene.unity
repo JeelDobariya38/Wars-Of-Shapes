@@ -799,9 +799,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1268610206}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GameResume
+      - m_Target: {fileID: 1034168730}
+        m_TargetAssemblyTypeName: WarsOfShapes.GameMenuManager, Assembly-CSharp
+        m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -989,9 +989,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1268610206}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GamePause
+      - m_Target: {fileID: 1034168730}
+        m_TargetAssemblyTypeName: WarsOfShapes.GameMenuManager, Assembly-CSharp
+        m_MethodName: PauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1362,9 +1362,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd77a9fb25cd5345a2be6eca5311488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 1160145616}
-  _offset: {x: 0, y: 0, z: -10}
-  _smoothSpeed: 0.125
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: -10}
+  smoothSpeed: 0.125
 --- !u!1 &563907485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,9 +1582,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1268610206}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GoBack
+      - m_Target: {fileID: 1034168730}
+        m_TargetAssemblyTypeName: WarsOfShapes.GameMenuManager, Assembly-CSharp
+        m_MethodName: OpenMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1956,6 +1956,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994867393}
   m_CullTransparentMesh: 1
+--- !u!1 &1034168728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1034168729}
+  - component: {fileID: 1034168730}
+  m_Layer: 0
+  m_Name: Game Menu Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1034168729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034168728}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1637855149}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1034168730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034168728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba02447db8da64e48978ac52c1928828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameMenu: {fileID: 731060478}
+  pauseMenu: {fileID: 1217044603}
+  gameoverMenu: {fileID: 1869294311}
+  healthText: {fileID: 994867395}
+  scoreText: {fileID: 1247393604}
+  scoreTextGameOverPanel: {fileID: 1542176426}
 --- !u!1 &1062686308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,9 +2223,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1268610206}
-        m_TargetAssemblyTypeName: WarsOfShapes.GameManager, Assembly-CSharp
-        m_MethodName: GoBack
+      - m_Target: {fileID: 1034168730}
+        m_TargetAssemblyTypeName: WarsOfShapes.GameMenuManager, Assembly-CSharp
+        m_MethodName: OpenMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2223,11 +2273,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099348965}
   m_CullTransparentMesh: 1
---- !u!4 &1160145616 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9150025337830336981, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
-  m_PrefabInstance: {fileID: 2080231080047059050}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1217044603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,7 +2298,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217044603}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2536,8 +2581,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 731060479}
-  - {fileID: 1869294312}
   - {fileID: 1217044604}
+  - {fileID: 1869294312}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2557,9 +2602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf578cb69a76a9c4ea1d3d0b3001271f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pausemenu: {fileID: 1217044603}
-  _mainmenu: {fileID: 731060478}
-  _gameovermenu: {fileID: 1869294311}
 --- !u!1 &1311061276
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,6 +2880,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542176424}
   m_CullTransparentMesh: 1
+--- !u!1 &1637855148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1637855149}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1637855149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637855148}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1034168729}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1693826140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2921,9 +2995,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1268610206}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GameRestart
+      - m_Target: {fileID: 1034168730}
+        m_TargetAssemblyTypeName: WarsOfShapes.GameMenuManager, Assembly-CSharp
+        m_MethodName: RestartCurrentScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3107,6 +3181,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869294311}
   m_CullTransparentMesh: 1
+--- !u!114 &2094234710 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6401315691498208957, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
+  m_PrefabInstance: {fileID: 2080231080047059050}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbfcae003749d25429de3f1cca6503f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2080231080047059050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3116,21 +3201,41 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 296582375774918978, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 994867395}
+    - target: {fileID: 296582375774918978, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
       propertyPath: _healthText
       value: 
       objectReference: {fileID: 994867395}
+    - target: {fileID: 296582375774918978, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
+      propertyPath: scoreSystem
+      value: 
+      objectReference: {fileID: 2094234710}
     - target: {fileID: 296582375774918978, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 1268610206}
     - target: {fileID: 296582375774918978, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
+      propertyPath: scoreTextGameOverPanel
+      value: 
+      objectReference: {fileID: 1542176426}
+    - target: {fileID: 296582375774918978, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
       propertyPath: _scoreTextGameOverPanel
       value: 
       objectReference: {fileID: 1542176426}
+    - target: {fileID: 6181177995580995857, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6401315691498208957, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6401315691498208957, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1247393604}
     - target: {fileID: 6401315691498208957, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
       propertyPath: _scoreText
       value: 
@@ -3254,3 +3359,4 @@ SceneRoots:
   - {fileID: 495807859}
   - {fileID: 1268610205}
   - {fileID: 1311061279}
+  - {fileID: 1637855149}
