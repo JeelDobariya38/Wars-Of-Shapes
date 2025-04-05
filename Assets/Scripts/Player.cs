@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 
 namespace WarsOfShapes
@@ -11,6 +10,12 @@ namespace WarsOfShapes
         private HealthSystem _healthSystem;
 
         public HealthSystem HealthSystem => _healthSystem;
+
+        public void Init(int health)
+        {
+            this.maxHealth = health;
+            _healthSystem.SetMaxHealth(health);
+        }
 
         private void Awake() 
         {

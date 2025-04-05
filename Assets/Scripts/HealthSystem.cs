@@ -14,8 +14,12 @@ namespace WarsOfShapes
 
         public HealthSystem(int maxHealth)
         {
-            _maxHealth = maxHealth;
             _currentHealth = maxHealth;
+            SetMaxHealth(maxHealth);
+        }
+
+        public void SetMaxHealth(int maxHealth) {
+            _maxHealth = maxHealth;
         }
 
         public bool IsAlive() {

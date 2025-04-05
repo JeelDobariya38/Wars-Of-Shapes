@@ -1,12 +1,9 @@
 using UnityEngine;
-using TMPro;
 
 namespace WarsOfShapes
 {
     public class ScoreSystem : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI scoreText;
-        
         private float _score = 0f;
         private bool _isCounting = false;
 

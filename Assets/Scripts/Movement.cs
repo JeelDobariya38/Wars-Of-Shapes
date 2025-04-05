@@ -5,11 +5,16 @@ namespace WarsOfShapes
     [RequireComponent(typeof(Rigidbody2D))]
     public class Movement : MonoBehaviour
     {
-        [SerializeField] private float speed;
+        [SerializeField] private int speed;
         [SerializeField] private PlayerControls controls;
 
         private Rigidbody2D _rb;
         private Vector2 _moveVelocity;
+
+        public void Init(int speed)
+        {
+            this.speed = speed;
+        }
 
         private void Awake() {
             _rb = GetComponent<Rigidbody2D>();
