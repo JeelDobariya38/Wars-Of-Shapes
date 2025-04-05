@@ -1,5 +1,4 @@
-# Documentaion
-
+# Documentation
 ## Movement Script
 
 - **Summary**: It read the input from controls, and then use that value to move the rigidbody2d in to that direction, based on speed, on each fixedupdate.
