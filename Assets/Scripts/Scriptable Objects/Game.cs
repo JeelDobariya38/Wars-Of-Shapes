@@ -7,6 +7,9 @@ namespace WarsOfShapes.Scriptables
     {
         public Enemy EnemyPrefab;
 
+        public Vector2 MinArea;
+        public Vector2 MaxArea;
+
         public int PlayerHealth;
         public int PlayerSpeed;
         

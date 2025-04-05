@@ -5,7 +5,8 @@ namespace WarsOfShapes
 {
     public class GameManager : MonoBehaviour
     {
-        public Game gamesetup;
+        [SerializeField] private Game gamesetup;
+        [SerializeField] private Transform enemyParent;
 
         private void Awake()
         {
@@ -15,8 +16,8 @@ namespace WarsOfShapes
 
             for (int i=0; i<gamesetup.NoOfEnemy; i++) 
             {
-                Vector3 spawnPosition = new Vector3(Random.Range(0, 50), Random.Range(0, 50), 0);
-                Enemy enemy = Instantiate(gamesetup.EnemyPrefab, spawnPosition, Quaternion.identity);
+                Vector3 spawnPosition = new Vector3(Random.Range(gamesetup.MinArea.x, gamesetup.MaxArea.x), Random.Range(gamesetup.MinArea.y, gamesetup.MaxArea.y), 0);
+                Enemy enemy = Instantiate(gamesetup.EnemyPrefab, spawnPosition, Quaternion.identity, enemyParent);
                 enemy.Init(gamesetup.EnemySpeed, gamesetup.EnemyStoppingDistance, gamesetup.EnemyRetreatDistance, gamesetup.EnemyTimeBtwShoot);
             }
         }
