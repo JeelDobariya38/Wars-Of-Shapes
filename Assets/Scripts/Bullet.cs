@@ -7,19 +7,21 @@ namespace WarsOfShapes
         [SerializeField] private float speed = 4;
         [SerializeField] private int damage = 2;
 
+        private Transform _transform;
         private Vector3 _target;
 
-        private void Start()
+        private void Awake() 
         {
+            _transform = this.transform;
             _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position;
         }
 
         private void Update()
         {
-            if (_target == this.transform.position) {
+            if (_target == _transform.position) {
                 DestroyGameObject();
             } else {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, _target, speed * Time.deltaTime);
+                _transform.position = Vector3.MoveTowards(_transform.position, _target, speed * Time.deltaTime);
             }
         }
 
