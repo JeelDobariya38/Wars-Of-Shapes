@@ -5,7 +5,7 @@ namespace WarsOfShapes
 {
     public class ScoreSystem : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _scoreText;
+        [SerializeField] private TextMeshProUGUI scoreText;
         
         private float _score = 0f;
         private bool _isCounting = false;
@@ -15,7 +15,7 @@ namespace WarsOfShapes
             if (_isCounting)
             {
                 _score += Time.deltaTime;
-                UpdateScoreText();
+                GameMenuManager.Instance.UpdateScoreText(Mathf.FloorToInt(_score));
             }
         }
 
@@ -32,20 +32,12 @@ namespace WarsOfShapes
         public void ResetScore()
         {
             _score = 0f;
-            UpdateScoreText();
+            GameMenuManager.Instance.UpdateScoreText(Mathf.FloorToInt(_score));
         }
 
         public int GetScore()
         {
             return Mathf.FloorToInt(_score);
-        }
-
-        private void UpdateScoreText()
-        {
-            if (_scoreText != null) 
-            {
-                _scoreText.text = "Score: " + Mathf.FloorToInt(_score).ToString();
-            }
         }
     }
 }

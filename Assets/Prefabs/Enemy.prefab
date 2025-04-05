@@ -146,8 +146,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletprefab: {fileID: 398345379745924908, guid: 5b0c8c704b152ba459d8a46f249807b0, type: 3}
-  _speed: 4
-  _stoppingDistance: 7
-  _retreatDistance: 4
-  _timeBtwShoot: 2
+  speed: 4
+  stoppingDistance: 7
+  retreatDistance: 3
+  timeBtwShoot: 2
