@@ -14,8 +14,16 @@ namespace WarsOfShapes
 
         public HealthSystem(int maxHealth)
         {
-            _maxHealth = maxHealth;
             _currentHealth = maxHealth;
+            SetMaxHealth(maxHealth);
+        }
+
+        public void SetMaxHealth(int maxHealth) {
+            if (_currentHealth > maxHealth) {
+                _currentHealth = maxHealth;
+            }
+            _maxHealth = maxHealth;
+            OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
         }
 
         public bool IsAlive() {

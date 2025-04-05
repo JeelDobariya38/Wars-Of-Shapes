@@ -7,14 +7,22 @@ namespace WarsOfShapes
     {
         public GameObject bulletprefab;
         
-        [SerializeField] private float speed;
-        [SerializeField] private float stoppingDistance;
-        [SerializeField] private float retreatDistance;
-        [SerializeField] private  float timeBtwShoot;
+        [SerializeField] private int speed;
+        [SerializeField] private int stoppingDistance;
+        [SerializeField] private int retreatDistance;
+        [SerializeField] private int timeBtwShoot;
         
         private Transform _target;
         private float _timeBtwShootCount;
         private Rigidbody2D _rb;
+
+        public void Init(int speed, int stoppingDistance, int retreatDistance, int timeBtwShoot)
+        {
+            this.speed = speed;
+            this.stoppingDistance = stoppingDistance;
+            this.retreatDistance = retreatDistance;
+            this.timeBtwShoot = timeBtwShoot;
+        }
         
         void Awake()
         {
