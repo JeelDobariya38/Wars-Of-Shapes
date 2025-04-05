@@ -9,7 +9,7 @@ namespace WarsOfShapes
             DontDestroyOnLoad(this);
         }
 
-        private void OApplicationQuit()
+        private void OnApplicationQuit()
         {
             Destroy(this);
         }
