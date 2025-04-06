@@ -4,24 +4,30 @@ namespace WarsOfShapes
 {
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] private float speed = 4;
+        [SerializeField] private float range = 5f;
+        [SerializeField] private float speed = 4f;
         [SerializeField] private int damage = 2;
+        
+        private Vector3 _direction;
+        private Vector3 _startPosition;
 
-        private Transform _transform;
-        private Vector3 _target;
-
-        private void Awake() 
+        private void Awake()
         {
-            _transform = this.transform;
-            _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position;
+            _startPosition = transform.position;
+        }
+
+        public void SetDirection(Vector3 direction)
+        {
+            _direction = direction.normalized;
         }
 
         private void Update()
         {
-            if (_target == _transform.position) {
+            transform.position += _direction * speed * Time.deltaTime;
+
+            if (Vector3.Distance(_startPosition, transform.position) >= range)
+            {
                 DestroyGameObject();
-            } else {
-                _transform.position = Vector3.MoveTowards(_transform.position, _target, speed * Time.deltaTime);
             }
         }
 
@@ -34,7 +40,8 @@ namespace WarsOfShapes
             }
         }
 
-        private void DestroyGameObject() {
+        private void DestroyGameObject()
+        {
             Destroy(this.gameObject);
         }
     }
