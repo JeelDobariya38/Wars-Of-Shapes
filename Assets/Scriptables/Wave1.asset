@@ -15,7 +15,7 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 4373992316913015625, guid: 0e3199b751b63674d966ae011aa96d29, type: 3}
   MinArea: {x: -100, y: 100}
   MaxArea: {x: 100, y: -100}
-  PlayerHealth: 500
+  PlayerHealth: 200
   PlayerSpeed: 4
   NoOfEnemy: 20
   EnemySpeed: 4
