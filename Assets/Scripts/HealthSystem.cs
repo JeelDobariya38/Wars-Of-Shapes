@@ -12,8 +12,13 @@ namespace WarsOfShapes
 
         public event Action OnNoHealth;
 
-        public HealthSystem(int maxHealth)
+        public HealthSystem()
         {
+            _currentHealth = 0;
+            _maxHealth = 0;
+        }
+
+        public void Init(int maxHealth) {
             _currentHealth = maxHealth;
             _maxHealth = maxHealth;
             OnHealthChanged?.Invoke(_currentHealth, _maxHealth);

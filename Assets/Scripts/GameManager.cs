@@ -5,21 +5,35 @@ namespace WarsOfShapes
 {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] private Game gamesetup;
-        [SerializeField] private Transform enemyParent;
+        [SerializeField] private Game gameData;
 
-        private void Awake()
+        private void Start()
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.GetComponent<Movement>().Init(gamesetup.PlayerSpeed);
-            player.GetComponent<Player>().Init(gamesetup.PlayerHealth);
+            SpawnPlayer();
+            SpawnEnemies();
+        }
 
-            for (int i=0; i<gamesetup.NoOfEnemy; i++) 
+        private void SpawnPlayer()
+        {
+            Player player = Instantiate(gameData.PlayerPrefab, Vector3.zero, Quaternion.identity);
+            player.Init(gameData.PlayerSpeed, gameData.PlayerHealth);
+        }
+
+        private void SpawnEnemies()
+        {
+            for (int i = 0; i < gameData.NoOfEnemy; i++)
             {
-                Vector3 spawnPosition = new Vector3(Random.Range(gamesetup.MinArea.x, gamesetup.MaxArea.x), Random.Range(gamesetup.MinArea.y, gamesetup.MaxArea.y), 0);
-                Enemy enemy = Instantiate(gamesetup.EnemyPrefab, spawnPosition, Quaternion.identity, enemyParent);
-                enemy.Init(gamesetup.EnemySpeed, gamesetup.EnemyStoppingDistance, gamesetup.EnemyRetreatDistance, gamesetup.EnemyTimeBtwShoot);
+                Vector3 spawnPos = GetRandomSpawnPosition();
+                Enemy enemy = Instantiate(gameData.EnemyPrefab, spawnPos, Quaternion.identity);
+                enemy.Init(gameData.EnemySpeed, gameData.EnemyStoppingDistance, gameData.EnemyRetreatDistance, gameData.EnemyTimeBtwShoot);
             }
+        }
+
+        private Vector3 GetRandomSpawnPosition()
+        {
+            float x = Random.Range(gameData.MinArea.x, gameData.MaxArea.x);
+            float y = Random.Range(gameData.MinArea.y, gameData.MaxArea.y);
+            return new Vector3(x, y, 0);
         }
     }
 }

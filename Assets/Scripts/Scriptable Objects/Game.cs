@@ -5,6 +5,7 @@ namespace WarsOfShapes.Scriptables
     [CreateAssetMenu(fileName = "Game", menuName = "Game", order = 0)]
     public class Game : ScriptableObject
     {
+        public Player PlayerPrefab;
         public Enemy EnemyPrefab;
 
         public Vector2 MinArea;

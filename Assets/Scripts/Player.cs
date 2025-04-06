@@ -4,31 +4,39 @@ namespace WarsOfShapes
 {
     public class Player : MonoBehaviour, IDamageable
     {
-        [SerializeField] private int maxHealth = 100;
-        [SerializeField] private ScoreSystem scoreSystem;
-        
         private HealthSystem _healthSystem;
+        private ScoreSystem _scoreSystem;
 
         public HealthSystem HealthSystem => _healthSystem;
 
-        public void Init(int health)
+        public void Awake()
         {
-            this.maxHealth = health;
-            _healthSystem.SetMaxHealth(health);
-        }
+            Camera.main.GetComponent<CameraFollow>().Init(transform);
+            _scoreSystem = GetComponent<ScoreSystem>();
 
-        private void Awake() 
-        {
-            _healthSystem = new HealthSystem(maxHealth);
-
+            _healthSystem = new HealthSystem();
             _healthSystem.OnHealthChanged += HandleHealthChanged;
             _healthSystem.OnNoHealth += HandlePlayerDeath;
         }
 
+        public void Init(int speed, int health)
+        {
+            GetComponent<Movement>().Init(speed);
+            _healthSystem.Init(health);
+        }
+
         private void Start()
         {
-            GameMenuManager.Instance.UpdateHealthText(_healthSystem.GetHealth());
-            scoreSystem.StartScoring();   
+            _scoreSystem.StartScoring();
+        }
+
+        private void OnEnable() {
+            
+        }
+
+        private void OnDisable() {
+            _healthSystem.OnHealthChanged -= HandleHealthChanged;
+            _healthSystem.OnNoHealth -= HandlePlayerDeath;
         }
 
         private void HandleHealthChanged(int currentHealth, int maxHealth) 
@@ -38,8 +46,8 @@ namespace WarsOfShapes
 
         private void HandlePlayerDeath() 
         {
-            GameMenuManager.Instance.OpenGameOverMenu(scoreSystem.GetScore());
-            scoreSystem.StopScoring();
+            GameMenuManager.Instance.OpenGameOverMenu(_scoreSystem.GetScore());
+            _scoreSystem.StopScoring();
         }
     }
 }
