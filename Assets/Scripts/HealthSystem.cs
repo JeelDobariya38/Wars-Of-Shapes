@@ -12,16 +12,14 @@ namespace WarsOfShapes
 
         public event Action OnNoHealth;
 
-        public HealthSystem(int maxHealth)
+        public HealthSystem()
         {
-            _currentHealth = maxHealth;
-            SetMaxHealth(maxHealth);
+            _currentHealth = 0;
+            _maxHealth = 0;
         }
 
-        public void SetMaxHealth(int maxHealth) {
-            if (_currentHealth > maxHealth) {
-                _currentHealth = maxHealth;
-            }
+        public void Init(int maxHealth) {
+            _currentHealth = maxHealth;
             _maxHealth = maxHealth;
             OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
         }
