@@ -24,8 +24,8 @@ namespace WarsOfShapes
             for (int i = 0; i < gameData.NoOfEnemy; i++)
             {
                 Vector3 spawnPos = GetRandomSpawnPosition();
-                Enemy enemy = Instantiate(gameData.EnemyPrefab, spawnPos, Quaternion.identity);
-                enemy.Init(gameData.EnemySpeed, gameData.EnemyStoppingDistance, gameData.EnemyRetreatDistance, gameData.EnemyTimeBtwShoot);
+                Enemy enemy = Instantiate(gameData.EnemyPrefab, spawnPos, Quaternion.identity).GetComponent<Enemy>();
+                enemy.Init(gameData.EnemySpeed, gameData.EnemyStoppingDistance, gameData.EnemyRetreatDistance, gameData.EnemyShootingRange, gameData.EnemyTimeBtwShoot);
             }
         }
 

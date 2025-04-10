@@ -5,59 +5,100 @@ namespace WarsOfShapes
     [RequireComponent(typeof(Rigidbody2D))]
     public class Enemy : MonoBehaviour
     {
-        public GameObject bulletprefab;
-        
+        public Bullet bulletPrefab;
+
         [SerializeField] private int speed;
-        [SerializeField] private int stoppingDistance;
-        [SerializeField] private int retreatDistance;
-        [SerializeField] private int timeBtwShoot;
-        
+        [SerializeField] private float stoppingDistance;
+        [SerializeField] private float retreatDistance;
+        [SerializeField] private float shootingRange;
+        [SerializeField] private float timeBtwShoot;
+
         private Transform _target;
         private float _timeBtwShootCount;
         private Rigidbody2D _rb;
 
-        public void Init(int speed, int stoppingDistance, int retreatDistance, int timeBtwShoot)
+        private float _stoppingDistanceSqr;
+        private float _retreatDistanceSqr;
+        private float _shootingRangeSqr;
+
+        public void Init(int speed, float stoppingDistance, float retreatDistance, float shootingRange, float timeBtwShoot)
         {
             this.speed = speed;
             this.stoppingDistance = stoppingDistance;
             this.retreatDistance = retreatDistance;
+            this.shootingRange = shootingRange;
             this.timeBtwShoot = timeBtwShoot;
+
+            CacheSqrDistances();
         }
-        
-        void Awake()
+
+        private void Awake()
         {
-            _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            _target = GameObject.FindGameObjectWithTag("Player")?.transform;
             _rb = GetComponent<Rigidbody2D>();
             _timeBtwShootCount = 0;
+
+            CacheSqrDistances();
         }
 
-        void Update()
+        private void CacheSqrDistances()
         {
-            if (_timeBtwShootCount > timeBtwShoot) {
-                _timeBtwShootCount = 0;
-                Shoot();
-            } else {
-                _timeBtwShootCount += Time.deltaTime;
+            _stoppingDistanceSqr = stoppingDistance * stoppingDistance;
+            _retreatDistanceSqr = retreatDistance * retreatDistance;
+            _shootingRangeSqr = shootingRange * shootingRange;
+        }
+
+        private void Update()
+        {
+            HandleShooting();
+        }
+
+        private void FixedUpdate()
+        {
+            HandleMovement();
+        }
+
+        private void HandleShooting()
+        {
+            if (_target == null) return;
+
+            Vector2 toPlayer = _target.position - transform.position;
+            float distanceSqr = toPlayer.sqrMagnitude;
+
+            _timeBtwShootCount += Time.deltaTime;
+
+            if (_timeBtwShootCount >= timeBtwShoot && distanceSqr <= _shootingRangeSqr)
+            {
+                _timeBtwShootCount = 0f;
+                ShootAtPlayer(toPlayer.normalized);
             }
         }
 
-        void FixedUpdate()
+        private void HandleMovement()
         {
+            if (_target == null) return;
+
+            Vector2 toPlayer = _target.position - transform.position;
+            float distanceSqr = toPlayer.sqrMagnitude;
+
             Vector2 direction = Vector2.zero;
-            float distance = Vector2.Distance(transform.position, _target.position);
 
-            if (distance < retreatDistance) {
-                direction = (transform.position - _target.position).normalized;
+            if (distanceSqr < _retreatDistanceSqr)
+            {
+                direction = (-toPlayer).normalized;
             }
-            else if (distance > stoppingDistance) {
-                direction = (_target.position - transform.position).normalized;
+            else if (distanceSqr > _stoppingDistanceSqr)
+            {
+                direction = toPlayer.normalized;
             }
 
             _rb.MovePosition(_rb.position + direction * speed * Time.fixedDeltaTime);
         }
 
-        void Shoot() {
-            Instantiate(bulletprefab, transform.position, Quaternion.identity);
+        private void ShootAtPlayer(Vector2 direction)
+        {
+            Bullet bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            bullet.SetDirection(direction);
         }
     }
 }
