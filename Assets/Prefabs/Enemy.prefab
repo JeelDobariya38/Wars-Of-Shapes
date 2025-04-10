@@ -171,8 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77a45860aa847642913958bc35536da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletprefab: {fileID: 398345379745924908, guid: 5b0c8c704b152ba459d8a46f249807b0, type: 3}
+  bulletPrefab: {fileID: 1818686422775449631, guid: 5b0c8c704b152ba459d8a46f249807b0, type: 3}
   speed: 4
   stoppingDistance: 7
   retreatDistance: 3
+  shootingRange: 0
   timeBtwShoot: 2

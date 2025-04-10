@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave1
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 296582375774918978, guid: 8ad5ab4e2131ac64c96372303e48b52c, type: 3}
-  EnemyPrefab: {fileID: 4373992316913015625, guid: 0e3199b751b63674d966ae011aa96d29, type: 3}
+  EnemyPrefab: {fileID: 6067609238707740287, guid: 0e3199b751b63674d966ae011aa96d29, type: 3}
   MinArea: {x: -100, y: 100}
   MaxArea: {x: 100, y: -100}
   PlayerHealth: 200
@@ -22,4 +22,5 @@ MonoBehaviour:
   EnemySpeed: 2
   EnemyStoppingDistance: 7
   EnemyRetreatDistance: 3
+  EnemyShootingRange: 10
   EnemyTimeBtwShoot: 2

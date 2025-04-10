@@ -6,7 +6,7 @@ namespace WarsOfShapes.Scriptables
     public class Game : ScriptableObject
     {
         public Player PlayerPrefab;
-        public Enemy EnemyPrefab;
+        public GameObject EnemyPrefab;
 
         public Vector2 MinArea;
         public Vector2 MaxArea;
@@ -18,6 +18,7 @@ namespace WarsOfShapes.Scriptables
         public int EnemySpeed;
         public int EnemyStoppingDistance;
         public int EnemyRetreatDistance;
+        public int EnemyShootingRange;
         public int EnemyTimeBtwShoot;
     }
 }
