@@ -16,7 +16,12 @@
 
 Its an education project.. Inspired by [youtube.com/@Blackthornprod](https://www.youtube.com/watch?v=_Z1t7MNk0c4), A great shout out to him...
 
+## Compatablity
+
+**Godot:** `v4.5-stable` (APP Image linux)
+
 ## Features
+
 - Minimal and Simple.
 - Easy to Understand Control.
 - Cross-Platform (Mobile, Windows, Web).
@@ -53,3 +58,4 @@ Its an education project.. Inspired by [youtube.com/@Blackthornprod](https://www
 2. Download the `apk file` for android.
 3. Install the apk, your mobile might even prompt you to scan app & install unknown app from browser. follow the steps and install the app.
 4. Run the application.
+
