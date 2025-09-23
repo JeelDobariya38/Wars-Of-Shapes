@@ -14,7 +14,7 @@
 - Play Now: [itch.io](https://jeeldobariya38.itch.io/wars-of-shapes).
 - Download: [github](https://github.com/JeelDobariya38/War-Of-Shapes/releases)
 
-Its an education project.. Inspired by [youtube.com/@Blackthornprod](https://www.youtube.com/watch?v=_Z1t7MNk0c4)
+Its an education project.. Inspired by [youtube.com/@Blackthornprod](https://www.youtube.com/watch?v=_Z1t7MNk0c4), A great shout out to him...
 
 ## Features
 - Minimal and Simple.
