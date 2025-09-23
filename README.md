@@ -14,6 +14,7 @@
 - Play Now: [itch.io](https://jeeldobariya38.itch.io/wars-of-shapes).
 - Download: [github](https://github.com/JeelDobariya38/War-Of-Shapes/releases)
 
+Its an education project.. Inspired by [youtube.com/@Blackthornprod](https://www.youtube.com/watch?v=_Z1t7MNk0c4)
 
 ## Features
 - Minimal and Simple.
@@ -52,4 +53,3 @@
 2. Download the `apk file` for android.
 3. Install the apk, your mobile might even prompt you to scan app & install unknown app from browser. follow the steps and install the app.
 4. Run the application.
-
