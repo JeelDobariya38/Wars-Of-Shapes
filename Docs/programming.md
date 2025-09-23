@@ -1,4 +1,12 @@
 # Documentation
+
+> [!IMPORTANT]
+> We are depercating this docs.. As we are now, moving from unity to godot.. 
+> But we still put this files just for furture reference for godot.. 
+> As it a very general file and can work for godot too..
+>
+> We will soon provide a new docs or update infomation... Keep a eye here!!
+
 ## Movement Script
 
 - **Summary**: It read the input from controls, and then use that value to move the rigidbody2d in to that direction, based on speed, on each fixedupdate.
@@ -71,3 +79,4 @@
 - **Dependency**: 
     - Target Gameobj's Transform, for target to focus on during a game session. (External Editor Assist Resolution)
 - **Parameters**: Offset & SmoothSpeed.
+
