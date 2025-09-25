@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed: int
+@export var speed: int = 100
 
 var direction: Vector2
 
