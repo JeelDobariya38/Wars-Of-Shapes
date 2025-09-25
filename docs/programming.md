@@ -7,13 +7,30 @@
 >
 > We will soon provide a new docs or update infomation... Keep a eye here!!
 
+Here, In this file you will documentaion of code. 
+
+Also sometimes you maybe find unity terms like gameobjs in parentheses, 
+Ignore them if don't come from unity background, It just for unity developer understanding..
+
 ## Movement Script
 
-- **Summary**: It read the input from controls, and then use that value to move the rigidbody2d in to that direction, based on speed, on each fixedupdate.
-- **Intended Responsiblity**: Player Movement.
-- **Dependency**: Rigidbody2d, for movement. (Internal Resolution)
-- **Parameters**: Speed & Control.
-- Decoupled from any gameobj.... which mean you can apply it to gameobj to give it a movement behaviour.
+- **Summary**: Used for moving player in 4 direction. (2d space)
+- **Intended Responsiblity**: Movement (Player).
+- **Dependency**:
+    - Godot InputMap (External Editor Assist Resolution)
+    - Node2d (Inheritance)
+- **Parameters**: Speed.
+- **File**: [scripts/movement.gd](scripts/movement.gd)
+
+It is decoupled from any node2d (gameobj).... Which mean you can apply it to gameobj to give it a movement behaviour.
+
+To move node2d (player), It read four input action `move_left`, `move_right`, `move_up`, `move_down`. covert them into vector2 direction.
+then, it increase magnitude of direction by speed. then it add the result in node2d position. make it move in that direction by speed.
+
+---
+
+<details>
+  <summary>Unity Stuff, Yet Left To Migrate!!</summary>
 
 ## Health System Script (NoT MonoBehaviour)
 
@@ -79,3 +96,5 @@
 - **Dependency**: 
     - Target Gameobj's Transform, for target to focus on during a game session. (External Editor Assist Resolution)
 - **Parameters**: Offset & SmoothSpeed.
+
+</details>
