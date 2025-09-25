@@ -14,8 +14,16 @@
 - Play Now: [itch.io](https://jeeldobariya38.itch.io/wars-of-shapes).
 - Download: [github](https://github.com/JeelDobariya38/War-Of-Shapes/releases)
 
+Its an education project.. Inspired by [youtube.com/@Blackthornprod](https://www.youtube.com/watch?v=_Z1t7MNk0c4), A great shout out to him...
+
+[Major Devlog](https://jeeldobariya38.itch.io/wars-of-shapes/devlog/1039162/project-trajectory-look-forward-to-future)
+
+## Compatablity
+
+**Godot:** `v4.5-stable` (APP Image linux)
 
 ## Features
+
 - Minimal and Simple.
 - Easy to Understand Control.
 - Cross-Platform (Mobile, Windows, Web).
