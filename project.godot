@@ -13,6 +13,7 @@ config_version=5
 config/name="Wars Of Shapes"
 config/description="A fast-paced 2D top-down shooter where a tiny circle fights for survival!"
 config/version=" v0.3.0"
+run/main_scene="uid://brd4eho1dhk0o"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [rendering]
