@@ -63,6 +63,11 @@ Its an education project.. Inspired by [youtube.com/@Blackthornprod](https://www
 3. Install the apk, your mobile might even prompt you to scan app & install unknown app from browser. follow the steps and install the app.
 4. Run the application.
 
+## Support Docs
+
+- [documentaion](docs/)
+- [style guide](docs/style-guide.md)
+
 ### Credits
 
 A Very Great Thank you!!
