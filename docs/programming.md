@@ -20,7 +20,7 @@ Ignore them if don't come from unity background, It just for unity developer und
     - Godot InputMap (External Editor Assist Resolution)
     - Node2d (Inheritance)
 - **Parameters**: Speed.
-- **File**: [scripts/movement.gd](scripts/movement.gd)
+- **File**: [scripts/movement.gd](../scripts/movement.gd)
 
 It is decoupled from any node2d (gameobj).... Which mean you can apply it to gameobj to give it a movement behaviour.
 
