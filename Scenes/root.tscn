@@ -6,3 +6,4 @@
 
 [node name="Player" parent="." instance=ExtResource("1_i04dx")]
 position = Vector2(555, 330)
+speed = 100

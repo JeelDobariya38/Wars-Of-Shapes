@@ -1,5 +1,9 @@
-extends Node
+extends Node2D
+
+@export var speed: int
+
+var direction: Vector2
 
 func _process(delta: float) -> void:
-    if Input.is_action_pressed("ui_left"):
-        print("left")
+    direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+    self.position += direction * speed * delta
