@@ -18,9 +18,11 @@ Its an education project.. Inspired by [youtube.com/@Blackthornprod](https://www
 
 [Major Devlog](https://jeeldobariya38.itch.io/wars-of-shapes/devlog/1039162/project-trajectory-look-forward-to-future)
 
+
 ## Compatablity
 
 **Godot:** `v4.5-stable` (APP Image linux)
+
 
 ## Features
 
@@ -60,4 +62,17 @@ Its an education project.. Inspired by [youtube.com/@Blackthornprod](https://www
 2. Download the `apk file` for android.
 3. Install the apk, your mobile might even prompt you to scan app & install unknown app from browser. follow the steps and install the app.
 4. Run the application.
+
+## Support Docs
+
+- [documentaion](docs/)
+- [style guide](docs/style-guide.md)
+
+### Credits
+
+A Very Great Thank you!!
+
+- [MarcoFazioRandom/Virtual-Joystick-Godot](https://github.com/MarcoFazioRandom/Virtual-Joystick-Godot)
+
+Here, you find all the shout out with details [docs/shout-out.md](docs/shout-out.md)
 
