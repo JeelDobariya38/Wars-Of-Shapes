@@ -18,14 +18,14 @@ Ignore them if don't come from unity background, It just for unity developer und
 - **Intended Responsiblity**: Movement (Player).
 - **Dependency**:
     - Godot InputMap (External Editor Assist Resolution)
-    - Node2d (Inheritance)
+    - RigidBody2D (Inheritance)
 - **Parameters**: Speed.
 - **File**: [scripts/movement.gd](../scripts/movement.gd)
 
-It is decoupled from any node2d (gameobj).... Which mean you can apply it to gameobj to give it a movement behaviour.
+It is decoupled from any specfic node2d (gameobj).... Which mean you can apply it, To gameobj given that it is a rigidbody2d, To give that spefic node a movement behaviour.
 
-To move node2d (player), It read four input action `move_left`, `move_right`, `move_up`, `move_down`. covert them into vector2 direction.
-then, it increase magnitude of direction by speed. then it add the result in node2d position. make it move in that direction by speed.
+To move node2d (player), It read four input action `move_left`, `move_right`, `move_up`, `move_down` on every frame. covert them into vector2 direction.
+then on every physics update, it increase magnitude of direction by speed. then it add the result as a impulse force to rigidbody2d. make it move in that direction by speed.
 
 ---
 

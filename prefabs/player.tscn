@@ -4,14 +4,14 @@
 [ext_resource type="Script" uid="uid://eihoq47n1ebv" path="res://scripts/movement.gd" id="2_5wxv7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4dohe"]
-size = Vector2(113, 111)
+size = Vector2(115, 115)
 
-[node name="Player" type="Sprite2D"]
-texture = ExtResource("1_y6xdh")
+[node name="Player" type="RigidBody2D"]
 script = ExtResource("2_5wxv7")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y6xdh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_4dohe")
