@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://brd4eho1dhk0o"]
+[gd_scene load_steps=4 format=3 uid="uid://brd4eho1dhk0o"]
 
 [ext_resource type="PackedScene" uid="uid://djrqa3wtw1l3n" path="res://prefabs/player.tscn" id="1_i04dx"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="2_twpsu"]
+[ext_resource type="PackedScene" uid="uid://du6wy1uowsy2c" path="res://prefabs/enemy.tscn" id="3_lrqlo"]
 
 [node name="Root" type="Node2D"]
 
@@ -20,3 +21,9 @@ action_left = "move_left"
 action_right = "move_right"
 action_up = "move_up"
 action_down = "move_down"
+
+[node name="Icon" parent="." instance=ExtResource("3_lrqlo")]
+position = Vector2(163, 187)
+
+[node name="Icon2" parent="." instance=ExtResource("3_lrqlo")]
+position = Vector2(936, 152)
