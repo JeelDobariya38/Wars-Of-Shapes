@@ -29,32 +29,34 @@ action_right = "move_right"
 action_up = "move_up"
 action_down = "move_down"
 
-[node name="Enemy" parent="." instance=ExtResource("3_lrqlo")]
+[node name="Enemys" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemys" instance=ExtResource("3_lrqlo")]
 position = Vector2(163, 187)
 
-[node name="Enemy2" parent="." instance=ExtResource("3_lrqlo")]
+[node name="Enemy2" parent="Enemys" instance=ExtResource("3_lrqlo")]
 position = Vector2(936, 152)
 
-[node name="Enemy3" parent="." instance=ExtResource("3_lrqlo")]
+[node name="Enemy3" parent="Enemys" instance=ExtResource("3_lrqlo")]
 position = Vector2(1040, 637)
 
-[node name="Enemy4" parent="." instance=ExtResource("3_lrqlo")]
+[node name="Enemy4" parent="Enemys" instance=ExtResource("3_lrqlo")]
 position = Vector2(1501, 309)
 
-[node name="Enemy5" parent="." instance=ExtResource("3_lrqlo")]
+[node name="Enemy5" parent="Enemys" instance=ExtResource("3_lrqlo")]
 position = Vector2(-282, 337)
 
-[node name="Enemy6" parent="." instance=ExtResource("3_lrqlo")]
+[node name="Enemy6" parent="Enemys" instance=ExtResource("3_lrqlo")]
 position = Vector2(30, 882)
 
-[node name="Enemy7" parent="." instance=ExtResource("3_lrqlo")]
+[node name="Enemy7" parent="Enemys" instance=ExtResource("3_lrqlo")]
 position = Vector2(-144, -456)
 
-[node name="Enemy8" parent="." instance=ExtResource("3_lrqlo")]
+[node name="Enemy8" parent="Enemys" instance=ExtResource("3_lrqlo")]
 position = Vector2(746, -288)
 
-[node name="Enemy9" parent="." instance=ExtResource("3_lrqlo")]
+[node name="Enemy9" parent="Enemys" instance=ExtResource("3_lrqlo")]
 position = Vector2(760, 1007)
 
-[node name="Enemy10" parent="." instance=ExtResource("3_lrqlo")]
+[node name="Enemy10" parent="Enemys" instance=ExtResource("3_lrqlo")]
 position = Vector2(-750, -260)
