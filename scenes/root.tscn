@@ -22,8 +22,11 @@ action_right = "move_right"
 action_up = "move_up"
 action_down = "move_down"
 
-[node name="Icon" parent="." instance=ExtResource("3_lrqlo")]
+[node name="Enemy" parent="." instance=ExtResource("3_lrqlo")]
 position = Vector2(163, 187)
 
-[node name="Icon2" parent="." instance=ExtResource("3_lrqlo")]
+[node name="Enemy2" parent="." instance=ExtResource("3_lrqlo")]
 position = Vector2(936, 152)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_lrqlo")]
+position = Vector2(1040, 637)
