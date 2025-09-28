@@ -18,4 +18,4 @@ position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_4dohe")
 
 [node name="ShootPoint" type="Marker2D" parent="."]
-position = Vector2(107, 0)
+position = Vector2(77, 0)
