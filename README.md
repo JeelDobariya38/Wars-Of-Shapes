@@ -72,7 +72,6 @@ Its an education project.. Inspired by [youtube.com/@Blackthornprod](https://www
 
 A Very Great Thank you!!
 
-- [MarcoFazioRandom/Virtual-Joystick-Godot](https://github.com/MarcoFazioRandom/Virtual-Joystick-Godot)
+- [kimk05/Virtual-Joystick-Godot](https://github.com/kimk05/Virtual-Joystick-Godot)
 
 Here, you find all the shout out with details [docs/shout-out.md](docs/shout-out.md)
-
