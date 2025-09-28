@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4dohe"]
 size = Vector2(121, 124)
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("shoot_point")]
 script = ExtResource("2_5wxv7")
+shoot_point = NodePath("ShootPoint")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_y6xdh")
@@ -15,3 +16,6 @@ texture = ExtResource("1_y6xdh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_4dohe")
+
+[node name="ShootPoint" type="Marker2D" parent="."]
+position = Vector2(107, 0)
