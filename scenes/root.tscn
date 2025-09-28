@@ -9,6 +9,11 @@
 [node name="Player" parent="." instance=ExtResource("1_i04dx")]
 position = Vector2(555, 330)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 1)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Virtual Joystick" parent="UI" instance=ExtResource("2_twpsu")]
